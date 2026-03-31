@@ -6,7 +6,7 @@ from anthropic import Anthropic
 client = Anthropic()
 model = "claude-sonnet-4-0"
 
-message = client.messages.create(
+message_1 = client.messages.create(
     model=model,
     max_tokens=1000,
     messages=[
@@ -17,4 +17,16 @@ message = client.messages.create(
     ]
 )
 
-print(message)
+message_2 = client.messages.create(
+    model=model,
+    max_tokens=1000,
+    messages=[
+        {
+            "role": "user",
+            "content": "Write another sentence"
+        }
+    ]
+)
+
+print(message_1.content[0].text)
+print(message_2.content[0].text)
