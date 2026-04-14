@@ -17,16 +17,4 @@ message_1 = client.messages.create(
     ]
 )
 
-message_2 = client.messages.create(
-    model=model,
-    max_tokens=1000,
-    messages=[
-        {
-            "role": "user",
-            "content": "Write another sentence"
-        }
-    ]
-)
-
 print(message_1.content[0].text)
-print(message_2.content[0].text)
